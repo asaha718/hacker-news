@@ -13,15 +13,15 @@ const Story = ({ storyId }) => {
 
   return story && story.url ? (
     <StoryWrapper>
-    <StoryTitle>
-      <a href={story.url}>
-        <h2>{story.title}</h2>
-      </a>
-    </StoryTitle> 
+      <StoryTitle>
+        <a href={story.url}>
+          <h2>{story.title}</h2>
+        </a>
+      </StoryTitle>
       <div className="post-details">
-      <p>{story.score} points</p>
-      <p>by {story.by}</p>
-      <p>{story.time}</p>
+        <p>{story.score} points</p>
+        <p>by {story.by}</p>
+        <p>{story.time}</p>
       </div>
     </StoryWrapper>
   ) : null;
