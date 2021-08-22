@@ -1,27 +1,29 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getStory } from "../services/newsApi";
-import { StoryWrapper } from "../styles/StoryStyles"; 
+import { StoryTitle, StoryWrapper } from "../styles/StoryStyles";
 
 const Story = ({ storyId }) => {
   const [story, setStory] = useState({});
 
   useEffect(() => {
     getStory(storyId).then((data) => data && data.url && setStory(data));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return story && story.url ? (
     <StoryWrapper>
-
+    <StoryTitle>
       <a href={story.url}>
-        <p>{story.title}</p>
+        <h2>{story.title}</h2>
       </a>
-
-      <h3>By: {story.by}</h3>
-      <h3>Posted: {story.time}</h3>
+    </StoryTitle> 
+      <div className="post-details">
+      <p>{story.score} points</p>
+      <p>by {story.by}</p>
+      <p>{story.time}</p>
+      </div>
     </StoryWrapper>
-    
   ) : null;
 };
 

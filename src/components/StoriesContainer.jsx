@@ -10,12 +10,15 @@ const StoryContainer = () => {
   }, []);
 
   return (
-    <div>
+    <div className="stories-page">
       <h1>Hacker News Stories </h1>
-
-      {storyIds.map((storyId) => (
-        <Story key={storyId} storyId={storyId} />
-      ))}
+      <ol>
+        {storyIds.map((storyId) => (
+          <li key={storyId}>
+            <Story storyId={storyId} />
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };
